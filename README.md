@@ -37,8 +37,8 @@ mdbook build ja
 
 The content is organized into two versions: English and Japanese.
 
-- [English version](./src/en/SUMMARY.md)
-- [Japanese version](./src/ja/SUMMARY.md)
+- [English version](./en/src/SUMMARY.md)
+- [Japanese version](./ja/src/SUMMARY.md)
 
 ## 📄 License
 
