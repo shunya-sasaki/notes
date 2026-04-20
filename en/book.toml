@@ -1,0 +1,7 @@
+[book]
+title = "Notes"
+authors = ["Shunya Sasaki"]
+language = "en"
+
+[build]
+build-dir = ".book"
