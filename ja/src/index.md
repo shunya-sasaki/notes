@@ -6,4 +6,4 @@
 さまざまなプログラミング言語、ツール、コンセプトに関する
 ノートやリファレンスのコレクションとして活用しています。
 
-- English edition: [en/src/index.md](./en/src/index.md)
+- [English edition](../en/src/index.md)
