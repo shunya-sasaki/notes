@@ -8,6 +8,7 @@
 /.mypy_cache
 /.vscode
 /.venv
+/.obsidian/workspace.json
 /.env
 /build
 /dist
