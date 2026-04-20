@@ -6,4 +6,4 @@ and software development.
 It serves as a collection of notes and references for
 various programming languages, tools, and concepts.
 
-- [Japanese edition](../ja/)
+- [Japanese edition](/ja/)
