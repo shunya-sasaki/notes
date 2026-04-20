@@ -1,5 +1,7 @@
 # Index
 
+[Index](./index.md)
+
 # Languages
 
 - [C++]()
