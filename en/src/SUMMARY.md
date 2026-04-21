@@ -45,3 +45,14 @@
   - [Lazygit](./tools/vcs/lazygit.md)
 
 # Concepts
+
+- [Algorithms & Data Structures]()
+- [API Design]()
+- [Concurrency & Async]()
+- [Data & Databases]()
+- [Debugging & Profiling]()
+- [Design Patterns]()
+- [DevOps & CI/CD]()
+- [Networking & Protocols]()
+- [Security]()
+- [Testing]()
