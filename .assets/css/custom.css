@@ -1,0 +1,9 @@
+.content main {
+    margin-inline-start: 90px;
+    margin-inline-end: 90px;
+    max-width: 100vw;
+}
+
+code {
+    font-family: "Moralerspace Neon HW", "UDEV Gothic NFLG", monospace !important;
+}

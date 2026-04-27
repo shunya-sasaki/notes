@@ -5,6 +5,10 @@
 **/*.egg-info
 **/.DS_Store
 **/.book/
+**/.third-party/
+/en/.assets/
+/ja/.assets/
+/.assets/theme/*.js
 /.mypy_cache
 /.vscode
 /.venv
