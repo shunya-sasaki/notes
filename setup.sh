@@ -38,9 +38,24 @@ download_if_missing \
     "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js" \
     "${THEME_DIR}/highlight.min.js"
 
-download_if_missing \
-    "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/powershell.min.js" \
-    "${THEME_DIR}/powershell.min.js"
+HLJS_LANGUAGES=(
+    \ diff
+    \ dockerfile
+    \ lua
+    \ markdown
+    \ nginx
+    \ nix
+    \ shell
+    \ vim
+    \ )
+
+for lang in "${HLJS_LANGUAGES[@]}"; do
+    lang="${lang// /}"
+    [[ -z "$lang" ]] && continue
+    download_if_missing \
+        "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/${lang}.min.js" \
+        "${THEME_DIR}/${lang}.min.js"
+done
 
 # Mermaid.js
 if [[ ! -f "${JS_DIR}/mermaid.min.js" ]]; then
@@ -75,8 +90,12 @@ init_js='document.addEventListener("DOMContentLoaded", function() {
 {
     cat "${THEME_DIR}"/highlight.min.js
     echo
-    cat "${THEME_DIR}"/powershell.min.js
-    echo
+    for lang in "${HLJS_LANGUAGES[@]}"; do
+        lang="${lang// /}"
+        [[ -z "$lang" ]] && continue
+        cat "${THEME_DIR}/${lang}.min.js"
+        echo
+    done
     printf '%s\n' "$init_js"
 }> ./.assets/theme/highlight.js
 
