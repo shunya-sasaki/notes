@@ -1,5 +1,7 @@
 # <iconify-icon icon="logos:slidev" style="vertical-align: middle;"></iconify-icon>Slidev
 
+In this article, we will learn about Slidev, a presentation tool for developers.
+
 ![Node.js](https://img.shields.io/badge/Node.js-5FA04E?logo=nodedotjs&labelColor=gray&logoColor=white)
 ![Markdown](https://img.shields.io/badge/Markdown-000000?logo=markdown&labelColor=gray&logoColor=white)
 ![Vue.js](https://img.shields.io/badge/Vue.js-4fc08d?logo=vuedotjs&labelColor=gray&logoColor=white)
