@@ -1,6 +1,6 @@
 # Nix
 
-この記事では、ソフトウェア環境の再現可能なビルドと宣言的な設定を提供する強力なパッケージマネージャー兼ビルドシステムである Nix について説明します。
+この記事では、再現可能なビルドとソフトウェア環境の宣言的な構成を提供する強力なパッケージマネージャー兼ビルドシステムであるNixについて解説します。
 
 <!-- toc -->
 
@@ -31,7 +31,7 @@
 
 ## 📦 Install Nix
 
-Nix をインストールするには、ターミナルで以下のコマンドを実行します:
+Nixをインストールするには、ターミナルで次のコマンドを実行します。
 
 ```sh
 sh <(curl --proto '=https' --tlsv1.2 -L https://nixos.org/nix/install)
@@ -39,21 +39,21 @@ sh <(curl --proto '=https' --tlsv1.2 -L https://nixos.org/nix/install)
 
 ## nix-shell: Isolated Development Environments
 
-Nix は分離された開発環境を作成できる `nix-shell` という強力なツールを提供しています。
+Nixは、隔離された開発環境を作成できる`nix-shell`という強力なツールを提供しています。
 
 ### Interactive Shell
 
-特定のパッケージを含むインタラクティブシェルを開始するには、以下のコマンドを使用します:
+特定のパッケージを含むインタラクティブシェルを起動するには、次のコマンドを使用します。
 
 ```sh
 nix-shell -p PACKAGE_NAME
 ```
 
-`PACKAGE_NAME` をシェルに含めたいパッケージ名に置き換えてください。
+`PACKAGE_NAME`を、シェルに含めたいパッケージ名に置き換えてください。
 
 ### Run commands
 
-`nix-shell` を使用して、インタラクティブシェルに入らずに分離された環境内で特定のコマンドを実行することもできます:
+`nix-shell`を使用して、インタラクティブシェルに入ることなく、隔離された環境内で特定のコマンドを実行することもできます。
 
 ```sh
 nix-shell -p PACKAGE_NAME --run "COMMAND"
@@ -61,7 +61,7 @@ nix-shell -p PACKAGE_NAME --run "COMMAND"
 
 ### shell.nix: Declarative Shells
 
-`shell.nix` ファイルを作成して宣言的なシェル環境を定義できます。以下は例です:
+`shell.nix`ファイルを作成して、宣言的なシェル環境を定義することができます。以下に例を示します。
 
 ```nix
 let
@@ -85,17 +85,17 @@ pkgs.mkShellNoCC {
 
 ## nix packages: Finding and Installing Packages
 
-Nix Packages Search ウェブサイトを使用してパッケージを検索できます:
+Nix Packages Searchウェブサイトを使用してパッケージを検索することができます。
 
 👉 [search packages](https://search.nixos.org/packages)
 
 ## flakes: A New Way to Manage Nix Projects
 
-Flakes は Nix の新機能で、Nix プロジェクトをより構造的で再現可能な方法で管理できます。
+Flakesは、Nixプロジェクトをより構造化された再現可能な方法で管理するためのNixの新機能です。
 
 ### Enable flakes
 
-flakes 機能を有効にするには、`~/.config/nix/nix.conf` を以下のように作成します:
+flakes機能を有効にするには、`~/.config/nix/nix.conf`を次のように作成します。
 
 ```conf
 extra-experimental-features = nix-command flakes
@@ -103,12 +103,12 @@ extra-experimental-features = nix-command flakes
 
 ## Home manager
 
-Home Manager は Nix を使用してユーザー設定を管理するためのツールです。
-このセクションでは、Home Manager のインストールと設定について説明します。
+Home Managerは、Nixを使用してユーザー設定を管理するためのツールです。
+このセクションでは、Home Managerのインストールと設定について説明します。
 
 ### Install home-manager
 
-以下のような内容で `~/.config/home-manager/home.nix` ファイルを作成します:
+`~/.config/home-manager/home.nix`ファイルを次のような内容で作成します。
 
 ```nix
 { config, pkgs, ...}:
@@ -160,7 +160,7 @@ _programs.nix_:
 }
 ```
 
-設定ファイルを作成した後、以下を実行して home-manager を初期化します。
+設定ファイルを作成した後、home-managerを初期化するために次のコマンドを実行します。
 
 ```sh
 nix run home-manager/master -- init --switch
@@ -168,13 +168,13 @@ nix run home-manager/master -- init --switch
 
 ### Update home-manager configuration
 
-home-manager の設定に加えた変更を適用するには、以下のコマンドを実行します:
+home-managerの設定に対する変更を反映するには、次のコマンドを実行します。
 
 ```sh
 home-manager switch
 ```
 
-flakes を使用している場合は、以下のコマンドでパッケージを更新できます:
+flakesを使用している場合は、次のコマンドでパッケージを更新できます。
 
 ```sh
 nix flake update
@@ -183,7 +183,7 @@ home-manager switch
 
 ### List up installed packages
 
-インストール済みのパッケージを一覧表示するには、以下を実行します:
+インストールされているパッケージを一覧表示するには、次のコマンドを実行します。
 
 ```sh
 home-manager packages
@@ -191,9 +191,9 @@ home-manager packages
 
 ### Change repository
 
-デフォルト設定では、nix は **unstable** パッケージリポジトリを使用します。
-安定版パッケージリポジトリを使用したい場合は、`flake.nix` の設定を変更する必要があります。
-例えば、安定版 25.11 を使用したい場合は、以下のように設定を変更します:
+デフォルト設定では、Nixは**unstable**パッケージリポジトリを使用します。
+安定版のパッケージリポジトリを使用したい場合は、`flake.nix`の設定を変更する必要があります。
+例えば、安定版25.11を使用したい場合は、設定を次のように変更します。
 
 _flake.nix_
 
@@ -209,27 +209,44 @@ _flake.nix_
   }
 ```
 
+#### URLs for Nix Packages and Home Manager
+
+ニーズに応じて、Nixパッケージとhome-managerに適したリポジトリを選択することができます。
+以下は異なるバージョンのURLです。
+
+| Nix package                               | Home Manager                                    | 説明                                     |
+| ----------------------------------------- | ----------------------------------------------- | ---------------------------------------- |
+| github:nixos/nixpkgs/nixpkgs-unstable     | github:nix-community/home-manager               | Unstableバージョン                       |
+| github:nixos/nixpkgs/nixpkgs-25.11        | github:nix-community/home-manager/release-25.11 | LinuxとMacOS向けの安定版25.11            |
+| github:nixos/nixpkgs/nixpkgs-25.11-darwin | github:nix-community/home-manager/release-25.11 | MacOS向けの安定版25.11                   |
+| github:nixos/nixpkgs/nixos-25.11          | github:nix-community/home-manager/release-25.11 | NixOS向けの安定版25.11                   |
+
+> [!TIP]
+> 最新の安定版を使用したい場合は、Nixパッケージのリポジトリを
+> `nixos-unstable`に、Home Managerのリポジトリを`home-manager`に
+> 設定することができます。これらは最新の安定版リリースで更新されます。
+
 ## Initialize flake in a project
 
-以下のコマンドを実行して flake を初期化します。`flake.nix` が作成されます。
+flakeを初期化して`flake.nix`を作成するには、次のコマンドを実行します。
 
 ```sh
 nix flake init
 ```
 
-プロジェクトの依存関係と設定を `flake.nix` ファイルに定義できます。
-flake で定義された開発環境を自動的に有効化したい場合は、
-次のセクションで説明する `direnv` を使用してください。
+その後、`flake.nix`ファイル内でプロジェクトの依存関係と設定を定義できます。
+flakeで定義された開発環境を自動的にアクティブ化したい場合は、
+次のセクションで説明する`direnv`を使用してください。
 
 ## Automatic environment activation with `direnv`
 
-プロジェクトディレクトリに入ったときに nix 環境を自動的に有効化するには、
-nix と組み合わせて `direnv` を使用できます。
-このセクションでは、nix での `direnv` のインストールと設定について説明します。
+プロジェクトディレクトリに入った際にnix環境を自動的にアクティブ化するには、
+nixと組み合わせて`direnv`を使用することができます。
+このセクションでは、nixと連携した`direnv`のインストールと設定について解説します。
 
 ### Install direnv
 
-direnv を使用して nix 環境の自動有効化を行うには、まず direnv をインストールします:
+direnvを使ってnix環境を自動的にアクティブ化するには、まずdirenvをインストールします。
 
 ---
 
@@ -241,13 +258,13 @@ brew install direnv
 
 ---
 
-direnv をインストールした後、シェルの設定ファイル（例: `~/.bashrc`、`~/.zshrc` など）に以下の行を追加します:
+direnvをインストールした後、シェルの設定ファイル(例: `~/.bashrc`、`~/.zshrc`など)に次の行を追加します。
 
 ```sh
 eval "$(direnv hook SHELL_NAME)"
 ```
 
-例えば、`zsh` を使用している場合は以下を追加します:
+例えば、`zsh`を使用している場合は、次のように追加します。
 
 ```sh
 eval "$(direnv hook zsh)"
@@ -255,13 +272,13 @@ eval "$(direnv hook zsh)"
 
 ### Configure direnv with nix in a project
 
-nix 環境の自動有効化を行うには、プロジェクトルートに `.envrc` を以下のように作成します:
+nix環境の自動アクティブ化を有効にするには、プロジェクトのルートに`.envrc`を次のように作成します。
 
 ```env
 use nix
 ```
 
-`.envrc` ファイルを作成した後、以下のコマンドを実行して direnv が設定を読み込めるようにします:
+`.envrc`ファイルを作成した後、direnvに設定の読み込みを許可するため、次のコマンドを実行します。
 
 ```sh
 direnv allow
@@ -271,21 +288,21 @@ direnv allow
 
 ### General
 
-まず、プロジェクトルートに `flake.nix` を作成します。
+最初に、プロジェクトのルートに`flake.nix`を作成します。
 
-次に、プロジェクトルートに `.envrc` を以下のように作成します:
+次に、プロジェクトのルートに`.envrc`を次のように作成します。
 
 ```env
 use flake
 ```
 
-最後に、以下のコマンドを実行して direnv が設定を読み込めるようにします:
+最後に、direnvに設定の読み込みを許可するため、次のコマンドを実行します。
 
 ```sh
 direnv allow
 ```
 
-設定後、プロジェクトディレクトリに入ると、direnv が flake で定義された nix 環境を自動的に有効化します。
+セットアップ後、プロジェクトディレクトリに入ると、direnvがflakeで定義されたnix環境を自動的にアクティブ化します。
 
 ### Rust project
 
@@ -432,8 +449,8 @@ _flake.nix_
 ```
 
 > [!TIP]
-> Next.js プロジェクトを作成する場合は、まず
-> `nix-shell -p nodejs_<nodeVersion> --run npx create-next-app <project-name>` を実行します
-> （例: `nix-shell -p nodejs_24 --run npx create-next-app my-next`）。
-> プロジェクト作成後、プロジェクトルートディレクトリに上記のように 'flake.nix' と '.envrc'
-> を作成します。
+> Next.jsプロジェクトを作成する場合、最初に
+> `nix-shell -p nodejs_<nodeVersion> --run npx create-next-app <project-name>`
+> を実行します(例: `nix-shell -p nodejs_24 --run npx create-next-app my-next`)。
+> プロジェクトを作成した後、上記のように
+> プロジェクトのルートディレクトリに'flake.nix'と'.envrc'を作成します。

@@ -10,6 +10,8 @@
   - [Pydantic BaseModel](./languages/python/pydantic-basemodel.md)
 - [Rust]()
   - [Rust Introdcution](./languages/rust/introduction.md)
+- [Markdown]()
+  - [Slidev](./languages/md/slidev.md)
 - [TypeScript]()
   - [Next.js on GitHub Pages](./languages/ts/nextjs-github-pages.md)
   - [Recharts: Composal chart library for React](./languages/ts/recharts.md)
@@ -45,3 +47,14 @@
   - [Lazygit](./tools/vcs/lazygit.md)
 
 # Concepts
+
+- [Algorithms & Data Structures]()
+- [API Design]()
+- [Concurrency & Async]()
+- [Data & Databases]()
+- [Debugging & Profiling]()
+- [Design Patterns]()
+- [DevOps & CI/CD]()
+- [Networking & Protocols]()
+- [Security]()
+- [Testing]()
