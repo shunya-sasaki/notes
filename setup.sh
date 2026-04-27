@@ -4,7 +4,7 @@ BASE_DIR=".third-party"
 JS_DIR="$BASE_DIR/js"
 CSS_DIR="$BASE_DIR/css"
 THEME_DIR="$BASE_DIR/theme"
-RUNTIME_THEME_DIR="./assets/theme"
+RUNTIME_THEME_DIR="./.assets/theme"
 
 # Create directories if they don't exist
 mkdir -p "$JS_DIR" "$CSS_DIR" "$THEME_DIR" "$RUNTIME_THEME_DIR"
