@@ -307,3 +307,89 @@ class Post {
 ````
 
 ### Layout
+
+#### Default layouts
+
+Slidev provides built-in layouts that you can use by setting the `layout`
+property in the front matter of a slide.
+
+| Layout            | Description                                                  |
+| ----------------- | ------------------------------------------------------------ |
+| `center`          | Positions content in the middle of the screen.               |
+| `cover`           | Displays the presentation cover page with title and context. |
+| `default`         | Basic layout for any type of content.                        |
+| `end`             | Final slide layout for presentations.                        |
+| `fact`            | Emphasizes facts or data prominently.                        |
+| `full`            | Uses entire screen space for content.                        |
+| `image-left`      | Places image on the left, content on the right.              |
+| `image-right`     | Places image on the right, content on the left.              |
+| `image`           | Features an image as the main page content.                  |
+| `iframe-left`     | Embeds a web page on the left, content on the right.         |
+| `iframe-right`    | Embeds a web page on the right, content on the left.         |
+| `iframe`          | Shows a web page as the primary content.                     |
+| `intro`           | Introduces the presentation with title, description, author. |
+| `none`            | Unstyled layout template.                                    |
+| `quote`           | Displays quotations with visual prominence.                  |
+| `section`         | Marks the start of a new presentation section.               |
+| `statement`       | Features an affirmation as the main content.                 |
+| `two-cols`        | Divides the page into two columns using `::right::`.         |
+| `two-cols-header` | Header spanning both columns, then splits left/right below.  |
+
+#### Custom layout
+
+You can add custom layouts by creating a layout files.
+To add custom layouts, create a `layouts` folder in the root
+directory of your project and add your layout files in it as follows:
+
+```diff
+  your-project
++ ├── layouts
++ │   └── your-layout.vue
+  ├── slides.md
+  └── ...
+```
+
+Example of _your-layout.vue_
+
+```html [your-layout.vue]
+<template>
+  <div class="slidev-layout my-layout">
+    <slot />
+  </div>
+</template>
+
+<style scoped>
+.my-layout {
+  position: relative;
+  padding: 6rem 2rem 2rem; /* top padding ≈ h1 height + offset */
+}
+
+.my-layout :deep(h1) {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #2563eb;
+  position: absolute;
+  top: 2rem;
+  left: 3rem;
+  margin: 0;
+}
+</style>
+```
+
+You can use your custom layout by setting the `layout` property
+in the front matter of a slide as follows:
+
+```markdown
+---
+layout: your-layout
+---
+
+Your slide content here
+```
+
+> [!TIP]
+>
+> - If you create a layout file with the same name as a built-in layout,
+>   the built-in layout will be overridden by your custom layout.
+> - For example, if you create a `center.vue` file in the `layouts` folder,
+>   it will override the built-in `center` layout.
