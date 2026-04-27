@@ -37,8 +37,8 @@ mdbook build ja
 
 The content is organized into two versions: English and Japanese.
 
-- [English version](./en/src/SUMMARY.md)
-- [Japanese version](./ja/src/SUMMARY.md)
+- [English version](https://shunya-sasaki.github.io/notes/en/)
+- [Japanese version](https://shunya-sasaki.github.io/notes/ja/)
 
 ## 📄 License
 
