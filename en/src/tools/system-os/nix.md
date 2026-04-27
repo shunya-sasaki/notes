@@ -209,6 +209,23 @@ _flake.nix_
   }
 ```
 
+#### URLs for Nix Packages and Home Manager
+
+You can choose the appropriate repository for Nix packages and Home Manager based on your needs.
+Here are the URLs for different versions:
+
+| Nix package                               | Home Manager                                    | Explain                                  |
+| ----------------------------------------- | ----------------------------------------------- | ---------------------------------------- |
+| github:nixos/nixpkgs/nixpkgs-unstable     | github:nix-community/home-manager               | Unstable version                         |
+| github:nixos/nixpkgs/nixpkgs-25.11        | github:nix-community/home-manager/release-25.11 | Stable version 25.11 for Linux and MacOS |
+| github:nixos/nixpkgs/nixpkgs-25.11-darwin | github:nix-community/home-manager/release-25.11 | Stable version 25.11 for MacOS           |
+| github:nixos/nixpkgs/nixos-25.11          | github:nix-community/home-manager/release-25.11 | Stable version 25.11 for NixOS           |
+
+> [!TIP]
+> If you prefer to use the latest stable version, you can set the repository to
+> `nixos-unstable` for Nix packages and `home-manager` for Home Manager,
+> as they will be updated with the latest stable releases.
+
 ## Initialize flake in a project
 
 Run the following command to initialize flake, that create `flake.nix`.
