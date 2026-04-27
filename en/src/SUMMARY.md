@@ -10,6 +10,8 @@
   - [Pydantic BaseModel](./languages/python/pydantic-basemodel.md)
 - [Rust]()
   - [Rust Introdcution](./languages/rust/introduction.md)
+- [Markdown]()
+  - [Slidev](./languages/md/slidev.md)
 - [TypeScript]()
   - [Next.js on GitHub Pages](./languages/ts/nextjs-github-pages.md)
   - [Recharts: Composal chart library for React](./languages/ts/recharts.md)
