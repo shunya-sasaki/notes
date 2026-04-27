@@ -40,6 +40,8 @@ jobs:
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
+      - name: Install third party files
+        run: bash ./setup.sh
       - name: Build with mdBook for English edition
         run: mdbook build en
       - name: Build with mdBook for Japanese edition
