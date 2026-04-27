@@ -3,13 +3,14 @@
 ![Node.js](https://img.shields.io/badge/Node.js-5FA04E?logo=nodedotjs&labelColor=gray&logoColor=white)
 ![Markdown](https://img.shields.io/badge/Markdown-000000?logo=markdown&labelColor=gray&logoColor=white)
 ![Vue.js](https://img.shields.io/badge/Vue.js-4fc08d?logo=vuedotjs&labelColor=gray&logoColor=white)
+![TailWind CSS](https://img.shields.io/badge/TailWind%20CSS-06B6D4?logo=tailwindcss&labelColor=gray&logoColor=white)
 ![npm](https://img.shields.io/badge/npm-CB3837?logo=npm&labelColor=gray&logoColor=white)
 ![pnpm](https://img.shields.io/badge/pnpm-F69220?logo=pnpm&labelColor=gray&logoColor=white)
 ![Vite](https://img.shields.io/badge/Vite-9135FF?logo=vite&labelColor=gray&logoColor=white)
 
 <!-- toc -->
 
-- [What is Slidev?](#what-is-slidev)
+- [📝 What is Slidev?](#-what-is-slidev)
 - [📦 Setup](#-setup)
   - [Setup project](#setup-project)
   - [Install code block icons](#install-code-block-icons)
@@ -20,7 +21,7 @@
 
 <!-- /toc -->
 
-## What is Slidev?
+## 📝 What is Slidev?
 
 Slidev is a presentation tool for developers.
 It uses Markdown to create slides.
