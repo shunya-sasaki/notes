@@ -5,6 +5,7 @@
 # Languages
 
 - [C++]()
+  - [C++ Style Guide](./languages/cpp/style-guide.md)
   - [vcpkg: C++ pakcage manager](./languages/cpp/vcpkg.md)
 - [Python]()
   - [Pydantic BaseModel](./languages/python/pydantic-basemodel.md)
