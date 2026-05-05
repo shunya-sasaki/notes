@@ -39,6 +39,7 @@
   - [Mise](./tools/system-os/mise.md)
   - [Nix](./tools/system-os/nix.md)
   - [Scoop: Command-Line Installer for Windows](./tools/system-os/scoop.md)
+  - [SOPS & age](./tools/system-os/sops-age.md)
 - [Terminal & CLI]()
   - [Tmux](./tools/terminal-cli/tmux.md)
   - [Zellij](./tools/terminal-cli/zellij.md)
