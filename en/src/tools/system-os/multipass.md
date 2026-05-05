@@ -9,17 +9,14 @@
 ### Set driver
 
 ```sh
-multipass set local.driver=apple
+multipass set local.driver=qemu
 ```
 
-| Driver     | macOS | Windows | Linux | Description                                                                                                                |
-| ---------- | :---: | :-----: | :---: | -------------------------------------------------------------------------------------------------------------------------- |
-| apple      |  ✅   |   ❌    |  ❌   | Uses macOS-native Virtualization.framework. Deeply integrated with the OS and provides the most stable networking.         |
-| qemu       |  ✅   |   ❌    |  ✅   | General-purpose emulator. Default on macOS, but its complex network stack can cause API communication latency.             |
-| hyperv     |  ❌   |   ✅    |  ❌   | Uses Windows' built-in Hyper-V. The recommended driver on Windows.                                                         |
-| virtualbox |  ✅   |   ✅    |  ✅   | Requires installing an external application. Support is limited on Apple Silicon (M1 and later), so it is not recommended. |
-| lxd        |  ❌   |   ❌    |  ✅   | Linux only. Runs as a system container (LXC), making it very lightweight and fast.                                         |
-| libvirt    |  ❌   |   ❌    |  ✅   | Uses Linux's virtualization management API. Used when advanced configuration is required.                                  |
+| Driver     | macOS | Windows | Linux | Description                                                                                                                          |
+| ---------- | :---: | :-----: | :---: | ------------------------------------------------------------------------------------------------------------------------------------ |
+| qemu       |  ✅   |   ❌    |  ✅   | General-purpose emulator. Default on macOS and Linux. On Apple Silicon it wraps Apple's Hypervisor.framework.                        |
+| hyperv     |  ❌   |   ✅    |  ❌   | Uses Windows' built-in Hyper-V. Default on Windows. Requires Windows Pro (or higher) edition.                                        |
+| virtualbox |  ✅   |   ✅    |  ✅   | Requires installing VirtualBox separately. Support on Apple Silicon (M1 and later) is limited and depends on the VirtualBox version. |
 
 ### Find images
 

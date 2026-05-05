@@ -9,17 +9,14 @@
 ### Set driver
 
 ```sh
-multipass set local.driver=apple
+multipass set local.driver=qemu
 ```
 
-| Driver     | macOS | Windows | Linux | 説明                                                                                                                       |
-| ---------- | :---: | :-----: | :---: | -------------------------------------------------------------------------------------------------------------------------- |
-| apple      |  ✅   |   ❌    |  ❌   | macOS ネイティブの Virtualization.framework を使用します。OS と深く統合されており、最も安定したネットワークを提供します。 |
-| qemu       |  ✅   |   ❌    |  ✅   | 汎用エミュレータです。macOS のデフォルトですが、複雑なネットワークスタックにより API 通信のレイテンシが発生する場合があります。 |
-| hyperv     |  ❌   |   ✅    |  ❌   | Windows 標準の Hyper-V を使用します。Windows での推奨ドライバです。                                                        |
-| virtualbox |  ✅   |   ✅    |  ✅   | 外部アプリケーションのインストールが必要です。Apple Silicon (M1 以降) でのサポートが限定的なため、推奨されません。         |
-| lxd        |  ❌   |   ❌    |  ✅   | Linux 専用です。システムコンテナ (LXC) として動作するため、非常に軽量で高速です。                                          |
-| libvirt    |  ❌   |   ❌    |  ✅   | Linux の仮想化管理 API を使用します。高度な設定が必要な場合に使用します。                                                  |
+| Driver     | macOS | Windows | Linux | 説明                                                                                                                                |
+| ---------- | :---: | :-----: | :---: | ----------------------------------------------------------------------------------------------------------------------------------- |
+| qemu       |  ✅   |   ❌    |  ✅   | 汎用エミュレータです。macOS と Linux のデフォルトです。Apple Silicon では Apple の Hypervisor.framework をラップして使用します。    |
+| hyperv     |  ❌   |   ✅    |  ❌   | Windows 標準の Hyper-V を使用します。Windows のデフォルトです。Windows Pro 以上のエディションが必要です。                           |
+| virtualbox |  ✅   |   ✅    |  ✅   | VirtualBox を別途インストールする必要があります。Apple Silicon (M1 以降) でのサポートは限定的で、VirtualBox のバージョンに依存します。 |
 
 ### Find images
 
