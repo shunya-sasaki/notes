@@ -12,7 +12,7 @@
 /.mypy_cache
 /.vscode
 /.venv
-/.obsidian/workspace.json
+/.obsidian/
 /.env
 /build
 /dist
