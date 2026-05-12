@@ -6,6 +6,7 @@
 - [Skill layout](#skill-layout)
 - [SKILL.md format](#skillmd-format)
 - [Where to place skills](#where-to-place-skills)
+  - [Directory conventions per CLI](#directory-conventions-per-cli)
 - [Invoking a skill](#invoking-a-skill)
 
 <!-- /toc -->
@@ -50,12 +51,52 @@ Detailed instructions for Claude go here.
 
 ## Where to place skills
 
-- Project-level: `.claude/skills/<skill-name>/SKILL.md`
-- User-level: `~/.claude/skills/<skill-name>/SKILL.md`
+Skills can live in either a **project** directory or a **home (global)**
+directory.
+Project-scoped skills sit inside the repository and are typically
+checked in so collaborators share the same set.
+Home-scoped skills live under the user's home directory and are
+available across every project on that machine.
 
-Project-level skills are checked into the repository and shared with
-collaborators; user-level skills are personal and available across
-all projects.
+Each CLI agent looks for skills under its own vendor-specific
+directory.
+Several agents additionally honor a shared `.agents/skills/`
+convention, so a single set of skills can be reused across multiple
+tools without duplication.
+
+### Directory conventions per CLI
+
+| Directory Scope | Path | ClaudeCode | Codex | Gemini CLI | GitHub Copilot CLI | OpenCode |
+|---|---|:---:|:---:|:---:|:---:|:---:|
+| **Project** | `.claude/skills/` | ✅ | ✅ | ❌ | ✅ | ✅ |
+| **Project** | `.codex/skills/` | ❌ | ✅ | ❌ | ❌ | ❌ |
+| **Project** | `.gemini/skills/` | ❌ | ❌ | ✅ | ❌ | ❌ |
+| **Project** | `.github/skills/` | ❌ | ❌ | ❌ | ✅ | ❌ |
+| **Project** | `.opencode/skills/` | ❌ | ❌ | ❌ | ❌ | ✅ |
+| **Project** | `.agents/skills/` | ❌ | ✅ | ✅ | ✅ | ✅ |
+| **Home (Global)** | `~/.claude/skills/` | ✅ | ✅ | ❌ | ✅* | ✅ |
+| **Home (Global)** | `~/.codex/skills/` | ❌ | ✅ | ❌ | ❌ | ❌ |
+| **Home (Global)** | `~/.gemini/skills/` | ❌ | ❌ | ✅ | ❌ | ❌ |
+| **Home (Global)** | `~/.copilot/skills/`**| ❌ | ❌ | ❌ | ✅ | ❌ |
+| **Home (Global)** | `~/.config/opencode/skills/`| ❌ | ❌ | ❌ | ❌ | ✅ |
+| **Home (Global)** | `~/.agents/skills/` | ❌ | ✅ | ✅ | ✅ | ✅ |
+
+A few patterns are worth noting:
+
+- **Vendor-specific directories** (`.claude/`, `.codex/`, `.gemini/`,
+  `.github/`, `.opencode/`) are read only by their own CLI.
+  Use them when a skill is intentionally scoped to one agent.
+- **The `.agents/` convention** is shared by Codex, Gemini CLI, GitHub
+  Copilot CLI, and OpenCode at both project and home scope.
+  Put cross-tool skills here to avoid maintaining multiple copies.
+- **Claude Code** reads only the `.claude/` paths in this table and
+  does not pick up the `.agents/` directory.
+- **Cross-tool reuse via `.claude/`**: Codex, GitHub Copilot CLI, and
+  OpenCode also recognize `.claude/skills/` and `~/.claude/skills/`,
+  which makes those paths a practical lowest-common-denominator
+  location when Claude Code is part of the workflow.
+- **Home paths differ in shape**: most agents follow `~/.<vendor>/skills/`,
+  while OpenCode uses the XDG-style `~/.config/opencode/skills/`.
 
 ## Invoking a skill
 
