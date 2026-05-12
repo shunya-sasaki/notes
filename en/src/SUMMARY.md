@@ -28,6 +28,7 @@
   - [CodeCompanion](./tools/ai-ml/codecompanion.md)
   - [Ollama](./tools/ai-ml/ollama.md)
   - [OpenCode](./tools/ai-ml/opencode.md)
+  - [Skills](./tools/ai-ml/skills.md)
 - [Editor & IDE]()
   - [LSP: Language Server Protocol](./tools/editor-ide/lsp.md)
   - [Neovim](./tools/editor-ide/neovim.md)
