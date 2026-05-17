@@ -264,8 +264,8 @@ LSP では、lint の結果は `textDocument/publishDiagnostics` 通知を通じ
 > | Package Manager     | OS                    | Description                                 |
 > | ------------------- | --------------------- | ------------------------------------------- |
 > | APT (Debian/Ubuntu) | Linux (Debian/Ubuntu) | System package manager                      |
-> | Homebrew            | MacOS / Linux         | Package manager for macOS and Linux         |
-> | Nix                 | Linux / MacOS         | Declarative package manager                 |
+> | Homebrew            | macOS / Linux         | Package manager for macOS and Linux         |
+> | Nix                 | Linux / macOS         | Declarative package manager                 |
 > | Scoop               | Windows               | Command-line installer for Windows          |
 > | Snap                | Linux                 | Universal Linux package manager             |
 > | VS Code             | Cross platform        | Extension marketplace for VS Code           |

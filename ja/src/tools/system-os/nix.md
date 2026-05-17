@@ -217,8 +217,8 @@ _flake.nix_
 | Nix package                               | Home Manager                                    | 説明                                     |
 | ----------------------------------------- | ----------------------------------------------- | ---------------------------------------- |
 | github:nixos/nixpkgs/nixpkgs-unstable     | github:nix-community/home-manager               | Unstableバージョン                       |
-| github:nixos/nixpkgs/nixpkgs-25.11        | github:nix-community/home-manager/release-25.11 | LinuxとMacOS向けの安定版25.11            |
-| github:nixos/nixpkgs/nixpkgs-25.11-darwin | github:nix-community/home-manager/release-25.11 | MacOS向けの安定版25.11                   |
+| github:nixos/nixpkgs/nixpkgs-25.11        | github:nix-community/home-manager/release-25.11 | LinuxとmacOS向けの安定版25.11            |
+| github:nixos/nixpkgs/nixpkgs-25.11-darwin | github:nix-community/home-manager/release-25.11 | macOS向けの安定版25.11                   |
 | github:nixos/nixpkgs/nixos-25.11          | github:nix-community/home-manager/release-25.11 | NixOS向けの安定版25.11                   |
 
 > [!TIP]

@@ -26,7 +26,7 @@ This tool is popular for its speed, ease of use, and ability to streamline Git w
 Default path for the global config file:
 
 - Linux: `~/.config/lazygit/config.yml`
-- MacOS: `~/Library/Application\ Support/lazygit/config.yml`
+- macOS: `~/Library/Application\ Support/lazygit/config.yml`
 - Windows: `%LOCALAPPDATA%\lazygit\config.yml` (default location, but it will also be found in `%APPDATA%\lazygit\config.yml`
 
 ### Enable git-delta

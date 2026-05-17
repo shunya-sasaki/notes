@@ -5,6 +5,8 @@ In this article, we will explore Nix, a powerful package manager and build syste
 <!-- toc -->
 
 - [📦 Install Nix](#-install-nix)
+  - [Multi user installation](#multi-user-installation)
+  - [Single user installation](#single-user-installation)
 - [nix-shell: Isolated Development Environments](#nix-shell-isolated-development-environments)
   - [Interactive Shell](#interactive-shell)
   - [Run commands](#run-commands)
@@ -17,6 +19,10 @@ In this article, we will explore Nix, a powerful package manager and build syste
   - [Update home-manager configuration](#update-home-manager-configuration)
   - [List up installed packages](#list-up-installed-packages)
   - [Change repository](#change-repository)
+- [Nix Darwin](#nix-darwin)
+  - [What is Nix Darwin?](#what-is-nix-darwin)
+  - [Install and Migrarions](#install-and-migrarions)
+  - [Update](#update)
 - [Initialize flake in a project](#initialize-flake-in-a-project)
 - [Automatic environment activation with `direnv`](#automatic-environment-activation-with-direnv)
   - [Install direnv](#install-direnv)
@@ -26,6 +32,9 @@ In this article, we will explore Nix, a powerful package manager and build syste
   - [Rust project](#rust-project)
   - [Python project](#python-project)
   - [Node.js](#nodejs)
+- [Docker container](#docker-container)
+  - [nixos/nix](#nixosnix)
+  - [ubuntu](#ubuntu)
 
 <!-- /toc -->
 
@@ -33,8 +42,16 @@ In this article, we will explore Nix, a powerful package manager and build syste
 
 To install Nix, run the following command in your terminal:
 
+### Multi user installation
+
 ```sh
 sh <(curl --proto '=https' --tlsv1.2 -L https://nixos.org/nix/install)
+```
+
+### Single user installation
+
+```sh
+sh <(curl --proto '=https' --tlsv1.2 -L https://nixos.org/nix/install) --no-daemon
 ```
 
 ## nix-shell: Isolated Development Environments
@@ -217,14 +234,37 @@ Here are the URLs for different versions:
 | Nix package                               | Home Manager                                    | Explain                                  |
 | ----------------------------------------- | ----------------------------------------------- | ---------------------------------------- |
 | github:nixos/nixpkgs/nixpkgs-unstable     | github:nix-community/home-manager               | Unstable version                         |
-| github:nixos/nixpkgs/nixpkgs-25.11        | github:nix-community/home-manager/release-25.11 | Stable version 25.11 for Linux and MacOS |
-| github:nixos/nixpkgs/nixpkgs-25.11-darwin | github:nix-community/home-manager/release-25.11 | Stable version 25.11 for MacOS           |
+| github:nixos/nixpkgs/nixpkgs-25.11        | github:nix-community/home-manager/release-25.11 | Stable version 25.11 for Linux and macOS |
+| github:nixos/nixpkgs/nixpkgs-25.11-darwin | github:nix-community/home-manager/release-25.11 | Stable version 25.11 for macOS           |
 | github:nixos/nixpkgs/nixos-25.11          | github:nix-community/home-manager/release-25.11 | Stable version 25.11 for NixOS           |
 
 > [!TIP]
 > If you prefer to use the latest stable version, you can set the repository to
 > `nixos-unstable` for Nix packages and `home-manager` for Home Manager,
 > as they will be updated with the latest stable releases.
+
+## Nix Darwin
+
+### What is Nix Darwin?
+
+### Install and Migrarions
+
+```sh
+sudo NIX_CONFIG="experimental-features = nix-command flakes" nix run nix-darwin/master#darwin-rebuild -- switch --flake .#(hostname -s)
+```
+
+> [!WARNING]
+> Delete the follwoings
+>
+> - /etc/nix/nix.conf
+> - /etc/zprofile
+> - /etc/zshrc
+
+### Update
+
+```sh
+sudo darwin-rebuild switch --flake .#$(hostname -s)
+```
 
 ## Initialize flake in a project
 
@@ -454,3 +494,53 @@ _flake.nix_
 > (e.g., `nix-shell -p nodejs_24 --run npx create-next-app my-next`).
 > After creating a project, create 'flake.nix' and '.envrc'
 > as above in the project root directory.
+
+## Docker container
+
+### nixos/nix
+
+#### Enable home manager
+
+The default profille of `nixos/nix` contains `man-db` and `git-minimal` packages,
+which conflicts with home-manager configuration if you want to
+manage some packages such as `git` with home-manager.
+
+```sh
+nix-env -e man-db
+nix-env -e git-minimal
+```
+
+### ubuntu
+
+#### Set password for user `ubuntu`
+
+```sh
+cat ubuntu:<your-password> | chpasswd
+```
+
+#### Install dependencies for nix installation
+
+```
+apt update -y && apt upgrade -y && apt install -y sudo curl xz-utils
+```
+
+#### Single user installation
+
+```sh
+sh <(curl --proto '=https' --tlsv1.2 -L https://nixos.org/nix/install) --no-daemon
+```
+
+#### Add path to nix profile
+
+```sh
+echo "source $HOME/.nix-profile/etc/profile.d/nix.sh" >> ~/.bashrc
+source ~/.bashrc
+```
+
+#### Install home-manager
+
+```sh
+mkdir ~/.config/home-manager
+cd ~/.config/home-manager
+nix run home-manager/master -- init --switch
+```

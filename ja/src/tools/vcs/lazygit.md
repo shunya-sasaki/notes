@@ -27,7 +27,7 @@ Git ワークフローを効率化できることで人気があります。
 グローバル設定ファイルのデフォルトパス:
 
 - Linux: `~/.config/lazygit/config.yml`
-- MacOS: `~/Library/Application\ Support/lazygit/config.yml`
+- macOS: `~/Library/Application\ Support/lazygit/config.yml`
 - Windows: `%LOCALAPPDATA%\lazygit\config.yml`（デフォルトの場所ですが、`%APPDATA%\lazygit\config.yml` でも検出されます）
 
 ### Enable git-delta
