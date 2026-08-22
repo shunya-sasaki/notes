@@ -8,6 +8,8 @@
 **/.third-party/
 /en/.assets/
 /ja/.assets/
+/en/assets/
+/ja/assets/
 /.assets/theme/*.js
 /.mypy_cache
 /.vscode

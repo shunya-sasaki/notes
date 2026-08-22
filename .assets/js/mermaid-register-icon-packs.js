@@ -1,6 +1,6 @@
 mermaid.regsiterIconPack([
   {
-    name: "locos",
+    name: "logos",
     loader: () =>
       fetch("https://unpkg.com/@iconify-json/logos/icons.json").then((res) =>
         res.json(),
@@ -45,6 +45,27 @@ mermaid.regsiterIconPack([
     name: "fab",
     loader: () =>
       fetch("https://unpkg.com/@iconify-json/fa7-brands/icons.json").then((res) =>
+        res.json(),
+      ),
+  },
+  {
+    name: "selfhst",
+    loader: () =>
+      fetch("https://unpkg.com/@iconify-json/selfhst/icons.json").then((res) =>
+        res.json(),
+      ),
+  },
+  {
+    name: "thesvg",
+    loader: () =>
+      fetch("https://unpkg.com/@iconify-json/thesvg/icons.json").then((res) =>
+        res.json(),
+      ),
+  },
+  {
+    name: "thesvg-color",
+    loader: () =>
+      fetch("https://unpkg.com/@iconify-json/thesvg-color/icons.json").then((res) =>
         res.json(),
       ),
   },

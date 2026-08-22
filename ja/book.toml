@@ -12,10 +12,9 @@ command = "mdbook-mermaid"
 [output.html]
 theme = "../.assets/theme"
 additional-js = [
-    "../.third-party/js/mermaid.min.js",
-    "../.third-party/js/mermaid-init.js",
-    "../.third-party/js/iconify-icon.min.js",
-    "../.third-party/js/mermaid-init.js",
-    "../.assets/js/mermaid-register-icon-packs.js"
+    "assets/js/mermaid.min.js",
+    "assets/js/mermaid-init.js",
+    "assets/js/iconify-icon.min.js",
+    "assets/js/mermaid-register-icon-packs.js"
     ]
-additional-css = ["../.assets/css/custom.css"]
+additional-css = ["assets/css/custom.css"]

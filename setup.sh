@@ -100,4 +100,32 @@ init_js='document.addEventListener("DOMContentLoaded", function() {
     printf '%s\n' "$init_js"
 }> ./.assets/theme/highlight.js
 
+# Stage the runtime JS/CSS inside each book root.
+# mdBook copies `additional-js` / `additional-css` to <build-dir>/<given path>,
+# so a path starting with "../" lands outside the build directory and is left
+# out of the published site. Keeping the paths book-root relative makes the
+# generated .book/ self-contained.
+BOOKS=(en ja)
+RUNTIME_JS=(
+    "${JS_DIR}/mermaid.min.js"
+    "${JS_DIR}/mermaid-init.js"
+    "${JS_DIR}/iconify-icon.min.js"
+    "./.assets/js/mermaid-register-icon-packs.js"
+)
+RUNTIME_CSS=(
+    "./.assets/css/custom.css"
+)
+
+for book in "${BOOKS[@]}"; do
+    mkdir -p "${book}/assets/js" "${book}/assets/css"
+    for file in "${RUNTIME_JS[@]}"; do
+        cp -f "${file}" "${book}/assets/js/"
+    done
+    for file in "${RUNTIME_CSS[@]}"; do
+        cp -f "${file}" "${book}/assets/css/"
+    done
+    # Clean up the stray copies older versions of this setup left behind.
+    rm -rf "${book}/.assets" "${book}/.third-party"
+done
+
 echo "Done."
