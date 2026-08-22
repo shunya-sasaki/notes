@@ -1,4 +1,4 @@
-# <iconify-icon icon="logos:slidev" style="vertical-align: middle;"></iconify-icon>Slidev
+# <iconify-icon icon="logos:slidev" style="vertical-align: middle;"></iconify-icon> Slidev
 
 In this article, we will learn about Slidev, a presentation tool for developers.
 
@@ -150,7 +150,9 @@ theme: default
 # Slide title
 
 ---
+
 # This front matter will only apply to the following slide
+
 layout: center
 ---
 
@@ -362,20 +364,20 @@ Example of _your-layout.vue_
 </template>
 
 <style scoped>
-.my-layout {
-  position: relative;
-  padding: 6rem 2rem 2rem; /* top padding ≈ h1 height + offset */
-}
+  .my-layout {
+    position: relative;
+    padding: 6rem 2rem 2rem; /* top padding ≈ h1 height + offset */
+  }
 
-.my-layout :deep(h1) {
-  font-size: 3rem;
-  font-weight: bold;
-  color: #2563eb;
-  position: absolute;
-  top: 2rem;
-  left: 3rem;
-  margin: 0;
-}
+  .my-layout :deep(h1) {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #2563eb;
+    position: absolute;
+    top: 2rem;
+    left: 3rem;
+    margin: 0;
+  }
 </style>
 ```
 
