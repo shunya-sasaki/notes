@@ -1,13 +1,13 @@
 # <iconify-icon icon="selfhst:zensical" style="vertical-align: middle;"></iconify-icon> Zensical
 
-In this article, we will learn about Zensical, a static site generator
-for technical documentation.
-
 ![Python](https://img.shields.io/badge/Python-3776AB?logo=python&labelColor=gray&logoColor=white)
 ![Rust](https://img.shields.io/badge/Rust-000000?logo=rust&labelColor=gray&logoColor=white)
 ![Markdown](https://img.shields.io/badge/Markdown-000000?logo=markdown&labelColor=gray&logoColor=white)
 ![TOML](https://img.shields.io/badge/TOML-9C4121?logo=toml&labelColor=gray&logoColor=white)
 ![uv](https://img.shields.io/badge/uv-DE5FE9?logo=uv&labelColor=gray&logoColor=white)
+
+In this article, we will learn about Zensical, a static site generator
+for technical documentation.
 
 <!-- toc -->
 
