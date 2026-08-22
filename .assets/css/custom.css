@@ -7,3 +7,10 @@
 code {
     font-family: "Moralerspace Neon HW", "UDEV Gothic NFLG", monospace !important;
 }
+
+/* mdBook wraps every Markdown image in a zoom label that is `display: block`,
+   which stacks shields.io badges vertically. Lay the badges out in a row. */
+.content .checkbox-label:has(> img[src*="img.shields.io"]) {
+    display: inline-block;
+    margin-inline-end: 0.25em;
+}
